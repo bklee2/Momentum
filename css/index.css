@@ -1,3 +1,7 @@
 .center-aligned {
     text-align: center;
 }
+
+.js-todo {
+    list-style:none;
+}

@@ -3,6 +3,7 @@ const USER_NAME = "user_name";
 const greetingsForm = document.querySelector('#js-greetings-form');
 const greetingsText = document.querySelector('#js-greetings-text');
 
+// 환영 인사 표시
 function refreshGreetings() {
     const userName = localStorage.getItem(USER_NAME);
 
@@ -19,7 +20,7 @@ function refreshGreetings() {
     }
 }
 
-function onGreetingsSubmit(e) {
+function onGreetingsFormSubmit(e) {
     e.preventDefault();
 
     const name = document.querySelector('#js-name');
@@ -31,7 +32,7 @@ function onGreetingsSubmit(e) {
 
 function init() {
     refreshGreetings();
-    greetingsForm.addEventListener("submit", onGreetingsSubmit);
+    greetingsForm.addEventListener("submit", onGreetingsFormSubmit);
 }
 
 init();
