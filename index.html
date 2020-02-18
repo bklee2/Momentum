@@ -5,9 +5,16 @@
         <link href="css/index.css" rel="stylesheet">
     </header>
     <body>
-        <div class="js-clock">
-            <h1>00:00:00</h1>
-        </div>        
+        <div class="center-aligned">
+            <h1 id="js-clock">00:00:00</h1>
+        </div>
+        <form id="js-greetings-form" class="center-aligned">
+            <input id="js-name" type="text" placeholder="What's your name?"/>
+        </form>
+        <div class="center-aligned">
+            <h4 id="js-greetings-text">Welcome</h4>
+        </div>
         <script src='js/clock.js'></script>
+        <script src='js/greetings.js'></script>
     </body>
 </html>
