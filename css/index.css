@@ -2,6 +2,6 @@
     text-align: center;
 }
 
-.js-todo {
+#js-todo-ul {
     list-style:none;
 }

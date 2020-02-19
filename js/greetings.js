@@ -23,7 +23,7 @@ function refreshGreetings() {
 function onGreetingsFormSubmit(e) {
     e.preventDefault();
 
-    const name = document.querySelector('#js-name');
+    const name = document.querySelector('#js-name-input');
     localStorage.setItem(USER_NAME, name.value);
     name.value = "";
 
