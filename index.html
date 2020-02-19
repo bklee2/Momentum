@@ -4,33 +4,35 @@
         <meta charset="UTF-8">
         <link href="css/index.css" rel="stylesheet">
     </header>
-    <body>
-        <div class="center-aligned">
-            <h1 id="js-clock">00:00:00</h1>
+    <body class="center-aligned">
+        <div class="main-panel">
+            <div class="center-aligned">
+                <h1 id="js-clock">00:00:00</h1>
+            </div>
+            <form id="js-greetings-form" class="center-aligned">
+                <input id="js-name-input" type="text" placeholder="What's your name?"/>
+            </form>
+            <div class="center-aligned">
+                <h4 id="js-greetings-text" hidden>Welcome</h4>
+            </div>
+            <form id="js-todo-form" class="center-aligned">
+                <input id="js-todo-input" type="text" placeholder="Write a To Do"/>
+            </form>
+            <ul id="js-todo-ul">
+                <li id='1'>
+                    <span>❌</span>
+                    <label>text 1</label>
+                </li>
+                <li id='2'>
+                    <span>❌</span>
+                    <label>text 2</label>
+                </li>
+                <li id='3'>
+                    <span>❌</span>
+                    <label>text 3</label>
+                </li>
+            </ul>
         </div>
-        <form id="js-greetings-form" class="center-aligned">
-            <input id="js-name-input" type="text" placeholder="What's your name?"/>
-        </form>
-        <div class="center-aligned">
-            <h4 id="js-greetings-text" hidden>Welcome</h4>
-        </div>
-        <form id="js-todo-form" class="center-aligned">
-            <input id="js-todo-input" type="text" placeholder="Write a To Do"/>
-        </form>
-        <ul id="js-todo-ul">
-            <li id='1'>
-                <span>❌</span>
-                <label>text 1</label>
-            </li>
-            <li id='2'>
-                <span>❌</span>
-                <label>text 2</label>
-            </li>
-            <li id='3'>
-                <span>❌</span>
-                <label>text 3</label>
-            </li>
-        </ul>
         <script src='js/clock.js'></script>
         <script src='js/greetings.js'></script>
         <script src='js/todo.js'></script>
