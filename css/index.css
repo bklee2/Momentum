@@ -1,7 +1,17 @@
+.main-panel {
+    /* border:1px solid gold; */
+    display: inline-block;
+    margin: auto;
+    width: auto;
+}
+
 .center-aligned {
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #js-todo-ul {
     list-style:none;
+    text-align: left;
 }
