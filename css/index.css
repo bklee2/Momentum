@@ -1,21 +1,17 @@
 .main-panel {
-    border:1px solid gold;
-    /* height: auto; width: auto; */
-    float: left;
-    margin: 0 auto;
+    /* border:1px solid gold; */
+    display: inline-block;
+    margin: auto;
+    width: auto;
 }
 
 .center-aligned {
     text-align: center;
     align-items: center;
     justify-content: center;
-    /* margin: 0 auto; */
-}
-
-.center2 {
-    margin: 0 auto;
 }
 
 #js-todo-ul {
     list-style:none;
+    text-align: left;
 }
