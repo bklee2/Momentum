@@ -51,6 +51,19 @@ input:active {
     outline: none;
 }
 
+#js-weather-text {
+    color: white;
+}
+
+.weather {
+    position: absolute;
+    /* font-style: italic; */
+    font-size: 12px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
 #js-clock {
     color: white;
     font-size: 60px;
