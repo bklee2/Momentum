@@ -1,3 +1,11 @@
+body {
+    background-color: #2c3251;
+    /* background-image: url( "https://source.unsplash.com/featured/?landscape/1600"); */
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .main-panel {
     /* border:1px solid gold; */
     display: inline-block;

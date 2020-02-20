@@ -70,7 +70,7 @@ function getTodoList() {
 
 // todo 객체 array를 DOM에 그린다.
 function paintTodoList(todoList) {
-    const newTodoList = todoList ? todoList : [];
+    const newTodoList = todoList ? [...todoList] : [];
     const oldTodoList = getTodoList(); // 화면에 그려져있는 todo 리스트
 
     const todoDeleted = oldTodoList.filter(x => newTodoList.findIndex(y => x.id == y.id) < 0); // 삭제된 것
