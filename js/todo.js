@@ -2,6 +2,8 @@ const TODO_LS = "todo_list";
 
 const todoUl = document.querySelector('#js-todo-ul');
 
+// add(), delete()는 RAM에 객체 하나를 추가, 삭제
+// load(), save()는 localStorage에서 객체 리스트를 불러오기, 저장하기
 const TodoListLS = {
     load() { // localStorage에서 ToDo들을 가져와 todo 객체 배열로 변환하여 리턴
         const todoList = function() {
@@ -54,41 +56,17 @@ function createTodoNode(todo) {
     return li;
 }
 
-
-// 화면에 그려져있는 todo 리스트를 todo 객체 배열로 변환하여 리턴
-function getTodoList() {
-    const todoNodes = todoUl.querySelectorAll('li');
-    const todoList = [...todoNodes].map(x => { 
-        return {
-            id: x.id, 
-            text: x.querySelector('label').value
-        } 
-    });
-    
-    return todoList;
-}
-
 // todo 객체 array를 DOM에 그린다.
 function paintTodoList(todoList) {
+    // 기존 li 모두 삭제
+    while(todoUl.hasChildNodes()) {
+        todoUl.removeChild(todoUl.lastChild);
+    }
+
     const newTodoList = todoList ? [...todoList] : [];
-    const oldTodoList = getTodoList(); // 화면에 그려져있는 todo 리스트
-
-    const todoDeleted = oldTodoList.filter(x => newTodoList.findIndex(y => x.id == y.id) < 0); // 삭제된 것
-    const todoAdded = newTodoList.filter(x => oldTodoList.findIndex(y => x.id == y.id) < 0); // 추가된 것
-
-    // console.log(oldTodoList);
-    // console.log(todoDeleted);
-    // console.log(todoAdded);
-
-    // DOM에서 삭제
-    todoDeleted.forEach(todo => {
-        const todoNode = document.getElementById(todo.id);
-        todoUl.removeChild(todoNode);
-    });
-
-    // DOM에서 추가
-    todoAdded.forEach(todo => {
-        const todoNode = createTodoNode(todo);
+    // DOM에 li 새로 만들어 추가
+    newTodoList.forEach(todo => {
+        const todoNode = createTodoNode(todo); // todo 객체를 DOM li 노드로 만듦
         todoUl.appendChild(todoNode);
     });
 }
