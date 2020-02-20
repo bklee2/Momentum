@@ -37,8 +37,8 @@ function createTodoNode(todo) {
 }
 
 
-// DOM에서 ToDo들을 가져와 todo 객체 array를 리턴
-function getCurrentTodoList() {
+// DOM에서 ToDo Node들을 가져와 todo 객체 array를 리턴
+function getTodoList() {
     const todoNodes = todoUl.querySelectorAll('li');
     const todoList = [...todoNodes].map(x => { return {id: x.id, text: x.querySelector('label').value} });
     return todoList;
@@ -59,34 +59,23 @@ function saveTodoList(todoList) {
 
 // todo 객체 array를 DOM에 그린다.
 function paintTodoList(newTodoList) {
-    // 1 2 3   old 
-    //   2 3 4 new  // del 1, add 4
-    //todoList.filter
-
-    const a = [];
-    const b = [];
-
-    const oldTodoList = getCurrentTodoList();
-    //const intersectionKeys = newTodoList.filter(x => oldTodoList.findIndex(y => x.id == y.id) >= 0)
-    //const todoIntersected = newTodoList.filter(x => oldTodoList.findIndex(y => x.id == y.id) >= 0); // 교집합
+    const oldTodoList = getTodoList();
 
     const todoDeleted = oldTodoList.filter(x => newTodoList.findIndex(y => x.id == y.id) < 0); // 삭제된 것
     const todoAdded = newTodoList.filter(x => oldTodoList.findIndex(y => x.id == y.id) < 0); // 추가된 것
 
-    console.log(oldTodoList);
-    console.log(todoDeleted);
-    console.log(todoAdded);
-    // const todoNodes = todoUl.querySelectorAll('li');
-    // const todoList = [...todoNodes].map(x => { return {id: x.id, text: x.value} });
+    // console.log(oldTodoList);
+    // console.log(todoDeleted);
+    // console.log(todoAdded);
 
+    // DOM에서 삭제
     todoDeleted.forEach(todo => {
         const todoNode = document.getElementById(todo.id);
         todoUl.removeChild(todoNode);
     });
 
+    // DOM에서 추가
     todoAdded.forEach(todo => {
-        // 노드 생성
-        // 노드 추가
         const todoNode = createTodoNode(todo);
         todoUl.appendChild(todoNode);
     });
@@ -102,12 +91,10 @@ function onTodoFormSubmit(e) {
     todoInput.value = "";
     if(text == "") 
         return;
-    
-    const todo = newTodo(text)
-    const newTodoList = getCurrentTodoList().push(todo);
-    paintTodoList(newTodoList);
 
+    const newTodoList = [...loadTodoList(), newTodo(text)];
     saveTodoList(newTodoList);
+    paintTodoList(newTodoList);
 }
 
 function init() {
