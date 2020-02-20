@@ -51,14 +51,15 @@ input:active {
     outline: none;
 }
 
-#js-weather-text {
+#js-weather-icon, #js-weather-text {
     color: white;
+    vertical-align: middle;
 }
 
 .weather {
     position: absolute;
     /* font-style: italic; */
-    font-size: 12px;
+    font-size: 14px;
     position: absolute;
     top: 15px;
     right: 25px;
