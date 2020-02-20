@@ -7,10 +7,12 @@ async function async_fetch(url) {
     throw new Error(response.status)
 }
 
-const jsonPromises = urls.map(async url => {
-    const response = await fetch(url);
-    return response.json();
-});
+async function async_fetch2(urls) {
+    const jsonPromises = urls.map(async url => {
+        const response = await fetch(url);
+        return response.json();
+    });    
+}
 
 // const weather = await getWeather(); // 호출 방법
 async function getWeather(lat, lon) {
