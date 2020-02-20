@@ -31,7 +31,37 @@ body {
     justify-content: center;
 }
 
+input {
+    background: none;
+    appearance: none;
+    border: 0;
+    font-size: 22px;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+input::placeholder {
+    color: white;
+    text-align: center;
+    opacity: 0.8;
+}
+
+input:focus, 
+input:active {
+    outline: none;
+}
+
+#js-clock {
+    color: white;
+    font-size: 60px;
+}
+
+#js-greetings-text {
+    color: white;
+}
+
 #js-todo-ul {
     list-style:none;
     text-align: left;
+    color: white;
 }
