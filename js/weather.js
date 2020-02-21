@@ -18,8 +18,11 @@ async function async_fetch2(urls) {
 // const weather = await getWeather(); // 호출 방법
 async function getWeather(lat, lon) {
     const uri = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APPID}&units=metric`;
-    const response = await fetch(uri).catch(error => null);
-    const weather = await response.json().catch(error => null);
+    // const response = await fetch(uri).catch(error => null);
+    // const weather = await response.json().catch(error => null);
+    const weather = await fetch(uri)
+        .then(response => response.json().catch(error => null))
+        .catch(error => null);
     return weather;
 }
 
@@ -32,9 +35,14 @@ async function getCoords() {
         return new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
     }
     const position = await getPosition().catch(error => null);
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    return { lat, lon };
+    if(position)
+    {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        return { lat, lon };
+    }
+
+    return null;
 }
 
 async function paintWeatherText() {
